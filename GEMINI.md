@@ -32,3 +32,12 @@ The tools are hosted on GitHub Pages.
 ## Workflow
 - When asked to "start a new tool", initialize the folder and implementation.
 - Verify everything described is working.
+
+## Testing
+To test the tools locally:
+1.  Run a simple Python HTTP server from the root directory:
+    ```bash
+    python3 -m http.server 8081
+    ```
+2.  Open your browser and navigate to `http://localhost:8081`.
+3.  Click on the tool you want to test.

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter | Antigravity Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --text: #e2e8f0;
+            --primary: #38bdf8;
+            --secondary: #818cf8;
+            --card-bg: #1e293b;
+            --input-bg: #334155;
+            --input-border: #475569;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            padding: 2rem;
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            background: var(--input-bg);
+            border: 2px solid var(--input-border);
+            color: white;
+            padding: 1rem;
+            border-radius: 1rem;
+            font-size: 1.1rem;
+            font-family: inherit;
+            outline: none;
+            resize: vertical;
+            transition: all 0.2s;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #f8fafc;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .back-link {
+            margin-top: 2rem;
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Word Counter</h1>
+            
+            <textarea 
+                id="text-input" 
+                placeholder="Type or paste your text here..."
+                autofocus
+            ></textarea>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="word-count">0</span>
+                    <span class="stat-label">Words</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="char-count">0</span>
+                    <span class="stat-label">Characters</span>
+                </div>
+            </div>
+        </div>
+        
+        <a href="../" class="back-link">← Back to Tools</a>
+    </div>
+
+    <script>
+        const textarea = document.getElementById('text-input');
+        const wordCountDisplay = document.getElementById('word-count');
+        const charCountDisplay = document.getElementById('char-count');
+
+        function updateCounts() {
+            const text = textarea.value;
+            
+            // Character count
+            charCountDisplay.textContent = text.length.toLocaleString();
+
+            // Word count
+            // Trim whitespace and split by whitespace characters
+            // Filter out empty strings needed when text is empty or has multiple spaces
+            const words = text.trim();
+            const count = words ? words.split(/\s+/).length : 0;
+            
+            wordCountDisplay.textContent = count.toLocaleString();
+        }
+
+        // Listen for input events
+        textarea.addEventListener('input', updateCounts);
+        
+        // Initial check
+        updateCounts();
+    </script>
+</body>
+</html>
