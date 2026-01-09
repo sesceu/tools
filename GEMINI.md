@@ -31,6 +31,7 @@ The tools are hosted on GitHub Pages.
 
 ## Workflow
 - When asked to "start a new tool", initialize the folder and implementation.
+- Register the tool in the root `index.html`.
 - Verify everything described is working.
 
 ## Testing
