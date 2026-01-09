@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sesc's tools</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --primary: #38bdf8;
+      --secondary: #818cf8;
+      --card-bg: #1e293b;
+      --hover: #334155;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      padding: 4rem 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+      letter-spacing: -0.05em;
+    }
+
+    p.subtitle {
+      color: #94a3b8;
+      font-size: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tool-card {
+      background-color: var(--card-bg);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      background-color: var(--hover);
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
+    }
+
+    .tool-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .tool-desc {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Antigravity Tools</h1>
+      <p class="subtitle">A collection of vibe-coded everyday utilities.</p>
+    </header>
+
+    <main class="tool-grid">
+      <!-- Tools will be listed here -->
+      <a href="./days-since/" class="tool-card">
+        <span class="tool-title">Days Since</span>
+        <span class="tool-desc">Calculate the number of days elapsed since a past date.</span>
+      </a>
+    </main>
+  </div>
+</body>
+
+</html>
